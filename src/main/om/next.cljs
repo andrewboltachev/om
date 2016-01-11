@@ -1085,6 +1085,7 @@
    (when (iquery? component)
      (let [path' (into [] (remove number?) (path component))
            cp    (class-path component)
+           _ (println @(-> component get-reconciler get-indexer))
            qs    (get-in @(-> component get-reconciler get-indexer)
                    [:class-path->query cp])]
        (if-not (empty? qs)
